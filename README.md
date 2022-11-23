@@ -1,4 +1,7 @@
 # BBH_AMUSE
+Yi Kang
+Xueyang Hu
+Renhao Liang
 
 ### N-body
 how to initialize BH particles
