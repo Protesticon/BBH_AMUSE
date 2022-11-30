@@ -3,15 +3,10 @@ Yi Kang
 Xueyang Hu  
 Renhao Liang  
 
-### N-body
-how to initialize BH particles
-
-### N-body with SMBH
-add binaries (Seba) to SMBHs 4.154e6 Msun  
-(kepler orbit + fluctuation + evolve?)
-
-### Hydro
-gas distribution with SMBH + evolve  
+### Design
+Build 2 BH particles that surround the SMBH with random orbits (preferably with crossed orbits), run the three-body system to see whether the BHs would become a binary; 
+Then introduce a third BH or gas disk, to see how the external element influence the binary formation;
+Repeat the processes above multiple times;
 
 
 
