@@ -43,7 +43,7 @@ def random_p(r_in=0, r_out=3):
     
 def random_v(distance):
     r = 3
-    v=(np.random.rand()*(2*(constants.G*SMBH.mass/distance-constants.G*SMBH.mass/(r | units.pc)))).sqrt()
+    v=(((np.random.rand()+0.25)/1.25)*(2*(constants.G*SMBH.mass/distance-constants.G*SMBH.mass/(r | units.pc)))).sqrt()
     a=np.random.rand()*2*np.pi
     vx=v*np.cos(a)
     vy=v*np.sin(a)
@@ -77,6 +77,7 @@ for i in range(0, 1):
     BH3.velocity = (random_v(dist(BH3)))
     bodies1.add_particles(BH3)
     bodies2 = bodies1.copy()
+    bodies1.move_to_center()
     np.save('bodies_original', bodies2)
     
     converter = nbody_system.nbody_to_si(bodies1.mass.sum(), bodies1.position.length())
