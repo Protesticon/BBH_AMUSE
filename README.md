@@ -3,12 +3,14 @@ Yi Kang
 Xueyang Hu  
 Renhao Liang  
 
-### Design
-Build 2 BH particles that surround the SMBH with random orbits (preferably with crossed orbits), run the three-body system to see whether the BHs would become a binary; 
-Then introduce a third BH (several trials needed) or gas disk, to see how the external element influence the binary formation;
-Repeat the processes above multiple times;
+### Experiments
+Build BH particles that surround the SMBH using ProtoPlanetaryDisk, evolve pure Nbody (ph4) and detect binary formation and collisions (see "Nbody Simulation" part in BBH_formation.ipynb);
+
+Build gas disk using ProtoPlanetaryDisk, bridge the Nbody sets with hydro gas disk (Fi), evolve and detect binary formation and Nbody collisions (see "Bridge Nbody and Hydro" part in BBH_formation.ipynb);
+Results saved in "figure/".
 
 
+Test how properties of gas disk influence BBH formation in different_gasdisk.ipynb. Results saved in "figure_disk/".
 
 
 ### Literatures:
