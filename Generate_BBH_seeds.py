@@ -148,7 +148,7 @@ plt.ylabel(r'Average Hardness', size=12)
 #plt.legend(bbox_to_anchor=(1.0,1.0))
 plt.xlim([0,9.5])
 plt.title("Average Hardness of BBHs in Reference")
-plt.savefig("Figures/Reference/hardness_ref_average.png", dpi=200, bbox_inches='tight')
+plt.savefig("Figures/hardness_ref_average.png", dpi=200, bbox_inches='tight')
 plt.show()
 
 for i in range(N_BBH):
