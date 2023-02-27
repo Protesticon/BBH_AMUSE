@@ -3,23 +3,21 @@ Yi Kang
 Xueyang Hu  
 Renhao Liang  
 
-### Experiments
-Build BH particles that surround the SMBH using ProtoPlanetaryDisk, evolve pure Nbody (ph4) and detect binary formation and collisions (see "Nbody Simulation" part in BBH_formation.ipynb);
+### How to run this package?
 
-Build gas disk using ProtoPlanetaryDisk, bridge the Nbody sets with hydro gas disk (Fi), evolve and detect binary formation and Nbody collisions (see "Bridge Nbody and Hydro" part in BBH_formation.ipynb);
-Results saved in "figure/".
+1. download all files in the same folder;
 
+2. Running Generate_BBH_seeds.py to create soft BBHs that orbit around a SMBH. 
+It also launches a Nbody simulation that consists of only SMBH and generated BBHs. 
+The hardness variations of each BBH would be saved in Figures/Reference/. 
+Note that the BBHs here are expected not to interfere with each other in our simulations, hence, if there are significant fluctuations in hardness variations, please consider running Generate_BBH_seeds.py again until all hardnesses ascend smoothly.
+The final BBH Particles would be saved in BBH0.txt;
 
-Test how properties of gas disk influence BBH formation in different_gasdisk.ipynb. Results saved in "figure_disk/".
+3. Then we can initialize the Nbody and Hydro-Gravity Bridge simulations of BBHs in galactic nuclei by Nbody.py and Bridge.py respectively.
+In Nbody.py, we can alternate the range of other particles' masses and particle number.
+In Bridge.py, we can alternate the total mass of gas disk and gas particle number, the gas density/distribution follows (Sch¨odel, R., Eckart, A., Alexander, T., et al. 2007, A&A, 469, 125). And remember to change the result file's name as you like.  
 
+Warning: the simulations of Nbody and Bridge would be VERY time-consuming, and easily getting interrupted, we recommend to copy these codes in Jupyter Notebook before running.
 
-### Literatures:
-Binary Black Hole Mergers: https://www.frontiersin.org/articles/10.3389/fspas.2020.00038/full  
-The distribution of stars around the Milky Way’s central black hole: https://www.aanda.org/articles/aa/pdf/2018/01/aa30462-17.pdf  
-The Black Hole Mass Distribution in the Galaxy: https://ui.adsabs.harvard.edu/abs/2010ApJ...725.1918O/abstract  
+4. More analysis can be achieved using the output files, (e.g., analysis.py).
 
-# To Do
-## In report:
-add detailed discription of the code fi...  
-correct code...  
-soft binary?
