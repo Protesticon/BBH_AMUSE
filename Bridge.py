@@ -24,8 +24,8 @@ BBH0 = io.read_set_from_file(
            attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
     )
 
-Mdisk = 1
-Ndisk = 1000
+Mdisk = 1 # Msmbh
+Ndisk = 1000 # Particle Number
 
 BBH_bridge = []
 

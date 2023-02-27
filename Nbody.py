@@ -25,7 +25,7 @@ BBH0 = io.read_set_from_file(
     )
 
 n_BH = 1000 # Number of stellar-mass BHs
-Mmin = 1
+Mmin = 1 
 Mmax = 100
 
 BBH_nbody = []
