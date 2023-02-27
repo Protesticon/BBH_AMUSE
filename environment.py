@@ -200,12 +200,15 @@ def make_gasdisk_around_SMBH(SMBH=SMBH0, Mdisk=1, Ndisk=1000):
     return gasdisk, Pinner2, converter2
 
 
-BBH0 = io.read_set_from_file(
-           'BBH0.txt', 'txt',
-           attribute_types = (units.MSun, units.pc, units.kms, units.kms, units.kms, units.pc, units.pc, units.pc),
-           attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
-    )
-N_BBH = int(len(BBH0)/2)
+import os
+
+if os.path.exists("BBH0.txt"):
+    BBH0 = io.read_set_from_file(
+               'BBH0.txt', 'txt',
+               attribute_types = (units.MSun, units.pc, units.kms, units.kms, units.kms, units.pc, units.pc, units.pc),
+               attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
+        )
+    N_BBH = int(len(BBH0)/2)
 
 # Evolve with pure Nbody
 def grav(n_BH=1000, Mmin=1.0, Mmax=100.0):

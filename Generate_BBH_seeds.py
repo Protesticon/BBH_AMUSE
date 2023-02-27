@@ -138,6 +138,7 @@ while(model_time<end_time):
 
 gravity.stop()
 BBH_ref_info = np.array(BBH_ref_info)
+np.save("Results/Reference/BBH_ref_info", BBH_ref_info)
 
 print("\nPlot hardness variation...")
 plt.figure()
