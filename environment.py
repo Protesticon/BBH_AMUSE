@@ -14,6 +14,7 @@ from amuse.plot import scatter
 from amuse.community.ph4.interface import ph4
 from amuse.community.fi.interface import Fi
 from amuse.couple import bridge
+from amuse.support import io
 
 # Progress bar
 def ProgressBar(total, progress):
@@ -199,6 +200,13 @@ def make_gasdisk_around_SMBH(SMBH=SMBH0, Mdisk=1, Ndisk=1000):
     return gasdisk, Pinner2, converter2
 
 
+BBH0 = io.read_set_from_file(
+           'BBH0.txt', 'txt',
+           attribute_types = (units.MSun, units.pc, units.kms, units.kms, units.kms, units.pc, units.pc, units.pc),
+           attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
+    )
+N_BBH = int(len(BBH0)/2)
+
 # Evolve with pure Nbody
 def grav(n_BH=1000, Mmin=1.0, Mmax=100.0):
     print("Running Nbody (n_BH="+str(n_BH)+", Mmin="+str(round(Mmin,2))+"Msun, Mmax="+str(round(Mmax,2))+"Msun)......")
@@ -271,6 +279,7 @@ def grav(n_BH=1000, Mmin=1.0, Mmax=100.0):
 def gravhydro(Mdisk=1e-3, Ndisk=1000):
     rho = float(rho_0(Mdisk*SMBH0.mass, r0).value_in(units.g/units.cm**3))
     print("Running Bridge (Mdisk="+str(round(Mdisk,3))+"Msmbh, rho="+str(rho)+"g/cm3, Ndisk="+str(Ndisk)+")......")
+    gasdisk, Pinner2, converter2 = make_gasdisk_around_SMBH(SMBH0, Mdisk=Mdisk, Ndisk=Ndisk)
     
     bodies = Particles(0)
     bodies.add_particles(SMBH0)
@@ -282,12 +291,10 @@ def gravhydro(Mdisk=1e-3, Ndisk=1000):
 
     Nbody = SMBH+BBH
 
-    gravityA = ph4(converter1, number_of_workers=32)
+    gravityA = ph4(converter2, number_of_workers=32)
     gravityA.particles.add_particles(Nbody)
     channel = {"from_BHs": bodies.new_channel_to(gravityA.particles),
                 "to_BHs": gravityA.particles.new_channel_to(bodies)}
-    
-    gasdisk, Pinner2, converter2 = make_gasdisk_around_SMBH(SMBH0, Mdisk=Mdisk, Ndisk=Ndisk)
 
     hydro = Fi(converter2, mode="openmp", workers=32)
     hydro.parameters.use_hydro_flag = True

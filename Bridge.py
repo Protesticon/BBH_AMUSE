@@ -24,24 +24,23 @@ BBH0 = io.read_set_from_file(
            attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
     )
 
-n_BH = 1000 # Number of stellar-mass BHs
-Mmin = 1
-Mmax = 100
+Mdisk = 1
+Ndisk = 1000
 
-BBH_nbody = []
+BBH_bridge = []
 
 i = 0
 
 while i<10:
     print(f"\nTrial {i:d}:")
     try:
-        BBH_info = grav(n_BH=n_BH, Mmin=Mmin, Mmax=Mmax)
+        BBH_hg_info = gravhydro(Mdisk=Mdisk, Ndisk=Ndisk)
         
     except IOError:
         print("Encounter some errors and retry:\n")
         continue
     i += 1
-    BBH_nbody.append(BBH_info)
+    BBH_bridge.append(BBH_hg_info)
     
-np.save("Results/Nbody/BBH_nbody", np.array(BBH_nbody))
-print("Results saved in Results/Nbody/.")
+np.save("Results/Bridge/BBH_bridge", np.array(BBH_bridge))
+print("Results saved in Results/Bridge/.")

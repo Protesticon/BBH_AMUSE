@@ -43,7 +43,7 @@ for i in range(1, 201):
         e = np.random.rand(1)[0]/2
         BBHi = new_binary_from_orbital_elements(BBHi_1mass, BBHi_2mass, 
                                               a, e, G=constants.G)
-        setattr(BBHi, "name", [f"BBH{n+1:d}_1", f"BBH{n+1:d}_2"])
+        #setattr(BBHi, "name", [f"BBH{n+1:d}_1", f"BBH{n+1:d}_2"])
 
         BBHi.position += BHdisk[BHdisk.name==f'BH{i:d}'].position
         
@@ -75,8 +75,8 @@ print(int(len(BBH0)/2), "soft BBHs created.")
 
 from amuse.support import io
 io.write_set_to_file(BBH0, 'BBH0.txt', 'txt',
-           attribute_types = (units.MSun, None, units.pc, units.kms, units.kms, units.kms, units.pc, units.pc, units.pc),
-           attribute_names= ("mass", "name", "radius", "vx", "vy", "vz", "x", "y", "z")
+           attribute_types = (units.MSun, units.pc, units.kms, units.kms, units.kms, units.pc, units.pc, units.pc),
+           attribute_names= ("mass", "radius", "vx", "vy", "vz", "x", "y", "z")
     )
 
 # Evolve with only SMBH+BBHs
