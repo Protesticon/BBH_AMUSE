@@ -16,7 +16,7 @@ Warning: the simulations of Nbody and Bridge would be VERY time-consuming, and e
 
 4. More analysis can be achieved using the output files, (e.g., **analysis.py**).
 
-# Participants
+### Participants
 Xueyang Hu  
 Yi Kang  
 Renhao Liang  
