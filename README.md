@@ -1,8 +1,3 @@
-# BBH_AMUSE
-Xueyang Hu  
-Yi Kang  
-Renhao Liang  
-
 ### How to run this package?
 
 1. download all files in the same folder;
@@ -21,3 +16,7 @@ Warning: the simulations of Nbody and Bridge would be VERY time-consuming, and e
 
 4. More analysis can be achieved using the output files, (e.g., **analysis.py**).
 
+# Participants
+Xueyang Hu  
+Yi Kang  
+Renhao Liang  
