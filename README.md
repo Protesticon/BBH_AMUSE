@@ -1,6 +1,6 @@
 # BBH_AMUSE
-Yi Kang  
 Xueyang Hu  
+Yi Kang  
 Renhao Liang  
 
 ### How to run this package?
